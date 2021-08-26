@@ -1,8 +1,23 @@
 #newmane@berkeley.edu and fengxiao@email.arizona.edu
 #match trap data with precipitation data
 # R software script
-#2021.03.18
+#2021.08.26
 
+# This code is used in the project:
+# Newman, E.A.=, X. Feng=, K.R. Walker, S. Young, K. Smith, J. Townsend, D. Damien, J. Soto, K. Ernst. 
+# Precipitation’s complicated role in driving the abundance of an emerging disease vector in an urban, 
+# arid landscape 
+# (current status: submitted to Ecology Letters)
+
+# Kriged layers of precipition data used in this study available for download at figshare.com at 
+# https://doi.org/10.6084/m9.figshare.14068988.v1
+# Note: these files are 12.5 MB as a .zip file, but will be larger than 9 GB once unzipped 
+# Citation information:
+## Newman, Erica; Feng, Xiao (2021): Maricopa County, AZ interpolated daily precipitation rasters. 
+## figshare. Dataset. https://doi.org/10.6084/m9.figshare.14068988.v1 
+
+
+#loading packages
 library(raster)
 library(ggplot2)
 
@@ -11,6 +26,7 @@ occ <- shapefile("/.../new_mosqcounts14to16_prj.shp")
 
 occ$trapDay <- as.Date(occ$labdate, "%m/%d/%Y")    #change date to better format
 occ$spp <- occ$A_gyp_M + occ$A_gyp_F      #in this example, male and female Aedes aegypti mosquito counts are grouped
+# occ$spp <- occ$A_gyp_F    # however, this line can be used instead to model only the female Ae. aegypti, as in the manuscript
 
 
 # load PPT layers (these are available on FigShare)
@@ -62,12 +78,12 @@ calPPT <- function(daysAgo, dayRange,ooo){
 # find precipitation data associated with locations for (examples):
 # 1 day, starting 1 day ago
 ppt_1_1 <- calPPT(daysAgo = 1,dayRange = 1,ooo=occ) 
-# 1 day, 2 days ago
+# 1 day, starting 2 days ago
 ppt_2_1 <- calPPT(daysAgo = 2,dayRange = 1,ooo=occ) 
-# 1 day, 15 days ago
+# 1 day, starting 15 days ago
 ppt_15_1 <- calPPT(daysAgo = 15,dayRange = 1,ooo=occ) 
 
-#or cumulative precipitation:
+# or cumulative precipitation:
 # for 5 days, starting 10 days ago
 ppt_10_5 <- calPPT(daysAgo = 10,dayRange = 5,ooo=occ) 
 
@@ -81,6 +97,11 @@ ppt_data <- cbind(ppt_1_1,
 df <- data.frame(cbind(occ$spp,occ$trapDay,
                        ppt_data) )
 
+# for the purposes of running this code, the code above can be regarded as a customizeable function
+# however, we provide the dataframe that comes out of the above analysis as an example that can be 
+# graphed with the code below this line, or analysed with user-created code
+
+
 head(df)
 names(df)[1:2] <- c("spp","trapDay")
 #write.csv(df,"df.csv")
@@ -90,7 +111,7 @@ df <- reshape::melt(df,id=c("spp","trapDay"))
 head(df)
 
 #subset data by abundance if applicable
-test <- subset(df,spp<1500)
+# test <- subset(df,spp<1500)
 
 #graph results
 ggplot(test,aes(value,spp)  ) +
@@ -99,5 +120,7 @@ ggplot(test,aes(value,spp)  ) +
 
 ## save figure in png format
 ggsave("model/ppt_makefemaleCount.png",device="png")
+
+dev.off()
 
 
