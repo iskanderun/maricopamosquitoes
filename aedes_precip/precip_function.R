@@ -42,12 +42,12 @@
 # > aedes_precip
 #    >> rainfall_maricopa
 #         >>> raw
-#             >>>> ##(files in this folder are named "5400_FOPR_17.xlsx", etc., and follow structure of figshare folder)
+#             >>>> ##(files in this folder are named "5400_FOPR_17.xlsx", etc., and follow structure of github folder)
 #         >>> 3_station_raster
-#             >>>> ##(files in this folder are named "X20150319_ped.tif", etc., and follow structure of figshare folder)
+#             >>>> ##(files in this folder are named "X20150319_ped.tif", etc., and follow structure of github folder)
 #    >> data1
 #         >>> new_mosqcounts14to16_prj.shp 
-#    >> df.csv
+#         >>> df.csv
 
 
 ##########
