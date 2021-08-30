@@ -27,20 +27,10 @@
 # Note: these files are 12.5 MB as a .zip file, but will be larger than 9 GB 
 # once unzipped 
 
-# data for trap location information ("blurred" to protect currently operating 
-# machinery and personal addresses), and counts
-# of male and female Aedes aegypti collected at those traps, with collection dates
-# are available online at:
-# (a) link 1
-# (b) link 2
-# (c) dataframe "df.csv" that results from example code below, which can be used 
-# directly in PART 3 of this R script:
-#     xxxx
-
-
 # Where the code below indicates setting the directory to "~/.../", this indicates
 # that the user should point the code to wherever the data are stored, either locally 
-# or online. The file structure should follow that of "aedes_precip" in this github folder.
+# or online. In some cases, both options are given and the user must choose which source to use. 
+# The file structure should follow that of "aedes_precip" in this github folder.
 
 # A file structure that can be used if all of the data files are stored locally (i.e. 
 # on a user's computer,
