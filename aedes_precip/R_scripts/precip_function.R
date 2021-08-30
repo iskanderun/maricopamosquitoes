@@ -156,7 +156,7 @@ ppt_data <- cbind(ppt_1_1,
                   ppt_15_1)
 
 setwd()
-# write.csv(ppt_data,"model/ppt_data1.csv")
+# write.csv(ppt_data,"model/ppt_data.csv")
 
 # bind mosquito abundance information to precipiation information
 df <- data.frame(cbind(occ$spp,occ$trapDay,
@@ -172,9 +172,11 @@ df <- data.frame(cbind(occ$spp,occ$trapDay,
 # with the code below this line, or analysed with user-created code
 
 
-# "df.csv" can be created above; or you can load "df.csv" from github by
-# uncommenting the following lines and running the code:
-# df <- read.csv("https://raw.githubusercontent.com/iskanderun/maricopamosquitoes/aedes_precip/data1/df.csv")
+# "df.csv" can be created above; or you can load "df.csv" directly by uncommenting 
+# the code below and running it
+
+setwd("aedes_precip")
+df <- read.csv("model/R_data/df.csv")
 
 head(df)
 names(df)[1:2] <- c("spp","trapDay")
