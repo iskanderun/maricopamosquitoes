@@ -65,8 +65,9 @@ library(ggplot2)
 
 
 # load mosquito data
-#occ <- shapefile("/.../mos_info.shp")
-occ <- shapefile("https://raw.githubusercontent.com/iskanderun/maricopamosquitoes/aedes_precip/data1/mos_info_prj.shp")
+
+occ <- shapefile("model/R_data/mos_info.shp")
+
 
 occ$trapDay <- as.Date(occ$labdate, "%m/%d/%Y")    #change date to better format
 
