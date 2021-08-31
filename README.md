@@ -14,4 +14,4 @@ Either use the existing folder "rainfall_maricopa" with example layers, or remov
 with data from FigShare. Data for kriged precipitation are availble as a zipped file. 
 Unzip them in folder aedes_precip > model, and make sure the file structure resembles the one in this github repository.
 
-Similarly, a zipped .dbf file in file "R_data"  must be unzipped there before running code. 
+Similarly, a zipped .dbf file in file "R_data"  must be unzipped in place before running code precip_function.R. 
