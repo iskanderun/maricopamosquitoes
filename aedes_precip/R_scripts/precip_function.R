@@ -100,10 +100,10 @@ occ <- shapefile("/R_data/occ_SPATIAL_proj.shp")
 occ$trapDay <- as.Date(occ$labdate, "%m/%d/%Y")    #change date to better format
 
 #occ$spp <- occ$A_gyp_M + occ$A_gyp_F      #in this example, 
-    # male and female Aedes aegypti mosquito counts are grouped
+            # male and female Aedes aegypti mosquito counts are grouped
 
 occ$spp <- occ$A_gyp_F    # however, this line can be used instead 
-    # to model only the female Ae. aegypti, as in the manuscript
+            # to model only the female Ae. aegypti, as in the manuscript
 
 #############################
 # load PPT layers 
@@ -174,16 +174,15 @@ ppt_15_1 <- calPPT(daysAgo = 15,dayRange = 1,ooo=occ)
 ppt_10_5 <- calPPT(daysAgo = 10,dayRange = 5,ooo=occ) 
 
 # example
-ppt_data <- cbind(ppt_1_1,
+ppt_data_1day <- cbind(ppt_1_1,
                   ppt_2_1,
                   ppt_15_1)
 
-setwd()
 # write.csv(ppt_data,"model/ppt_data.csv")
 
 # bind mosquito abundance information to precipiation information
 df <- data.frame(cbind(occ$spp,occ$trapDay,
-                       ppt_data))
+                       ppt_data_1day))
 
 
 ##########
@@ -199,8 +198,8 @@ df <- data.frame(cbind(occ$spp,occ$trapDay,
 # "df.csv" can be created above; or you can load "df.csv" directly by uncommenting 
 # the code below and running it
 
-setwd("aedes_precip")
-df <- read.csv("model/R_data/df.csv")
+#df <- read.csv("model/R_data/df.csv")
+
 head(df)
 df <- reshape::melt(df,id=c("spp","trapDay"))
 head(df)
