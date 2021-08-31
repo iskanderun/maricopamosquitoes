@@ -9,4 +9,4 @@ To run the function used in "Precipitation's complicated role...", please go to 
 Data for kriged precipitation are availble as a zipped file. Unzip them in folder
 aedes_precip > model > rainfall_maricopa, and make sure the file structure resembles the one in this github repository.
 
-Similarly, a zipped .dbf file in file "data"  must be unzipped there before running code. 
+Similarly, a zipped .dbf file in file "R_data"  must be unzipped there before running code. 
