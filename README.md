@@ -9,8 +9,9 @@ permanent DOI: https://doi.org/10.6084/m9.figshare.14068988.v1). Use most curren
 Citation: Newman, Erica; Feng, Xiao (2021): Maricopa County, AZ interpolated daily precipitation rasters. figshare. 
 Dataset. https://doi.org/10.6084/m9.figshare.14068988.v1 
 
-To run the function used in "Precipitation's complicated role...", please go to aedes_precip > R_scripts and run the R script precip.function.R
-Data for kriged precipitation are availble as a zipped file. Unzip them in folder
-aedes_precip > model > rainfall_maricopa, and make sure the file structure resembles the one in this github repository.
+To run the function used in "Precipitation's complicated role...", please go to aedes_precip > R_scripts and run the R script precip_function.R.
+Either use the existing folder "rainfall_maricopa" with example layers, or remove "rainfall_maricopa" from folder "model" and replace it
+with data from FigShare. Data for kriged precipitation are availble as a zipped file. 
+Unzip them in folder aedes_precip > model, and make sure the file structure resembles the one in this github repository.
 
 Similarly, a zipped .dbf file in file "R_data"  must be unzipped there before running code. 
