@@ -23,16 +23,24 @@
 # date range of the kriged data to be associated with each individual observation of organismal data 
 # can be specified by the user by modifying the code. Notes below.
 
-# Kriged layers of precipition data used in this study available for download at 
-# figshare.com at 
+# Examples of kriged layers of precipition data used in this study are available
+# in folder "rainfall_maricopa". The full set of rasters is provided as a zip file
+# and if they are to be used, then delete or rename folder rainfall_maricopa" and
+# unzip the file by a similar name in the R_data folder.
+# Data are also available for download at figshare.com at
 ## Newman, Erica; Feng, Xiao (2021): Maricopa County, AZ interpolated daily 
 # precipitation rasters. 
 ## figshare. Dataset. https://doi.org/10.6084/m9.figshare.14068988.v1 
+# (permanent repository)
+
 # Note: these files are 12.5 MB as a .zip file, but will be larger than 9 GB 
 # once unzipped 
+# Users may need to manage working memory of their computers in order to run
+# these analyses with these data; however, similar analyses with smaller 
+# rasters should run comfortably on a 8GB memory computer
 
-# data for trap location information ("blurred" to protect currently operating 
-# machinery and personal addresses), and counts of male and female
+# Data for trap location information ("blurred" to protect currently operating 
+# machinery and personal addresses), and counts of male and female adults
 # Aedes aegypti collected at those traps, with collection dates
 # are available in the github repository.
 
@@ -44,8 +52,9 @@
 # or online. Navigating to RStudio menu: Session > Set Working Directory > Choose Directory, 
 # and then selecting "Open" for the downloaded folder "maricopamosquitoes-master" will run
 # a line of code that sets the correct local directory once the github directory is downloaded.
-# Note that the data from Figshare will have to be downloaded and unzipped into the "rainfall_maricopa"
-# folder (see below), and the .dbf file in "R_data" will need to be unzipped after download.
+# Note that if the data from FigShare is used, it will have to be downloaded and unzipped into the 
+# "rainfall_maricopa" folder if used (see below), and the .dbf file in "R_data" 
+# will need to be unzipped after the download of the github repository.
 
 # A file structure that can be used if all of the data files are stored locally (i.e. 
 # on a user's computer, github account, Dropbox folder or other cloud-based folder,
