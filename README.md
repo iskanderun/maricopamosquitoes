@@ -1,5 +1,5 @@
 # maricopamosquitoes
-A repository for analyses related to Maricopa County, Arizona mosquito data.
+A repository for functions, analyses, and graphing scripts related to Maricopa County, Arizona mosquito data.
 
 To access code and data for "Precipitation's complicated role...", the "maricopamosquitoes" repository can de dowloaded as a .zip file and unzipped locally.
 The kriged precipiation files are large and numerous! Because of data limitations, please download the zipped data file from figshare:
