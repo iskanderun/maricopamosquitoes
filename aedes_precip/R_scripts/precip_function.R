@@ -178,10 +178,12 @@ ppt_data_1day <- cbind(ppt_1_1,
                   ppt_2_1,
                   ppt_15_1)
 
-# write.csv(ppt_data,"model/ppt_data.csv")
+# not run:
+# write.csv(ppt_data,"model/ppt_data_1day.csv")
 
 # bind mosquito abundance information to precipiation information
-df <- data.frame(cbind(occ$spp,occ$trapDay,
+df <- data.frame(cbind(occ$spp,
+                       occ$trapDay,
                        ppt_data_1day))
 
 
