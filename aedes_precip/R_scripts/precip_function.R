@@ -106,9 +106,11 @@ occ$spp <- occ$A_gyp_F    # however, this line can be used instead
     # to model only the female Ae. aegypti, as in the manuscript
 
 #############################
-# load PPT layers (these are available on FigShare)
-setwd("~/.../aedes_precip/")
-#setwd("~/Dropbox/aedes_precip/") #or set pathway to a user-created Dropbox folder, for example
+# load PPT layers 
+# if this code is run without the figshare data, it will load a few example layers
+# included in the download.
+# To use the full stack, delete the example layers and download the FigShare data
+# (these are available as .zip file. Extract them before use)
 
 layers <- list.files("rainfall_maricopa/3_station_raster/",full.names = T,
                      pattern="_ped.tif$")
