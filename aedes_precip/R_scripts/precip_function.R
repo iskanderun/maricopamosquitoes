@@ -1,5 +1,5 @@
-# newmane@berkeley.edu and fengxiao@email.arizona.edu
-# match trap data with precipitation data
+# newmane@berkeley.edu and fengxiao.sci@gmail.com
+# match mosquito trap data with precipitation data
 # R software script
 # last updated: 2021.08.31
 
