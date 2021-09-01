@@ -211,7 +211,7 @@ ppt_data_1day_full <- data.frame(cbind(occ$spp,
                        occ$trapDay,
                        ppt_data_1day))
 
-#write.csv(ppt_data_1day_full,"df.csv")
+write.csv(ppt_data_1day_full, "model/R_data/ppt_data_1day_full.csv")
 
 
 # Or do this with cumulative precipitation
@@ -237,10 +237,10 @@ ppt_data_1day_full <- data.frame(cbind(occ$spp,
 
 # or use the .csv file created in PART 2
 
-df <- ppt_data_1day_full
+df <- read.csv("model/R_data/ppt_data_1day_full.csv")
 rm(ppt_data_1day_full)
+names(df)[1:2] <- c("num_fem","trapDay")
 
-# "spp" represents counts of individual adults (here, only females)
 # "ppt_X_X" represents precipitation in inches for each trapping event
 
 head(df)
