@@ -197,11 +197,8 @@ ppt_2_1 <- calPPT(daysAgo = 2,dayRange = 1,ooo=occ)
 # 1 day, starting 15 days ago
 ppt_15_1 <- calPPT(daysAgo = 15,dayRange = 1,ooo=occ) 
 
-# or cumulative precipitation (example):
-# for 5 days, starting 10 days ago
-ppt_10_5 <- calPPT(daysAgo = 10,dayRange = 5,ooo=occ) 
-
-# example
+# bind precipitation data together, for days 1, 2, and 15.
+# Example:
 ppt_data_1day <- cbind(ppt_1_1,
                   ppt_2_1,
                   ppt_15_1)
@@ -213,6 +210,14 @@ ppt_data_1day <- cbind(ppt_1_1,
 df <- data.frame(cbind(occ$spp,
                        occ$trapDay,
                        ppt_data_1day))
+
+#write.csv(df,"df.csv")
+
+
+# Or do this with cumulative precipitation
+# for 5 days, starting 10 days ago
+# not run (example):
+# ppt_10_5 <- calPPT(daysAgo = 10,dayRange = 5,ooo=occ) 
 
 
 ##########
