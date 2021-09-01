@@ -121,22 +121,27 @@ occ$spp <- occ$A_gyp_F    # however, this line can be used instead
 
 hist(log(occ$spp))
 
-#############################
-# load PPT layers 
-# if this code is run without the figshare data, it will load a few example layers
-# included in the download.
-# To use the full stack, delete the example layers and download the FigShare data
-# (these are available as .zip file. Extract them before use)
 
-layers <- list.files("model/rainfall_maricopa_vis/3_station_raster/",full.names = T,
+######################################
+# Run the code below for visualization of inches precipitation in Maricopa County region
+
+layers1 <- list.files("model/rainfall_maricopa_vis/3_station_raster/",full.names = T,
                      pattern="_ped.tif$")
-layers
-one_ly <- raster(layers[1]) # view first layer loaded in list, as example
+layers1
+one_ly <- raster(layers1[1]) # view first layer loaded in list, as example
 plot(one_ly)
-one_ly <- raster(layers[2]) # view second layer loaded in list, as example
+one_ly <- raster(layers1[2]) # view second layer loaded in list, as example
 plot(one_ly)
-one_ly <- raster(layers[3]) # view third layer loaded in list, as example
+one_ly <- raster(layers1[3]) # view third layer loaded in list, as example
 plot(one_ly)
+rm(layers1)
+
+######################################
+# Run the code below for use in function calPPT
+layers <- list.files("model/rainfall_maricopa/3_station_raster/",full.names = T,
+                     pattern="_ped.tif$")
+head(layers)
+
 
 #############################
 # Define the function calPPT
