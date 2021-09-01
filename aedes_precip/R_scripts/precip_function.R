@@ -58,7 +58,7 @@
 # and then selecting "Open" for the downloaded folder "maricopamosquitoes-master" will run
 # a line of code that sets the correct local directory once the github directory is downloaded.
 # Note that if the data from FigShare is used, it will have to be downloaded and unzipped into the 
-# "rainfall_maricopa" folder if used (see below), and the .dbf file in "R_data" 
+# "aedes_precip > model" folder if used (see below), and the .dbf file in "R_data" 
 # will need to be unzipped after the download of the github repository.
 
 # A file structure that can be used if all of the data files are stored locally (i.e. 
@@ -71,17 +71,18 @@
 #    >> R_scripts
 #      ## precip_function.R (this script)
 #    >> model
-#         >>> rainfall_maricopa (complete files available on github)
+#         >>> rainfall_maricopa_vis (for example and visualization purposes)
 #             >>>> raw
 #               ## (files in this folder are named "5400_FOPR_17.xlsx", etc., 
 #                 and follow structure of the github folder)
 #             >>>> 3_station_raster
 #               ## (files in this folder are named "X20150319_ped.tif", etc., 
 #                   and follow structure of the github folder)
+#         ## rainfall_maricopa.zip (complete set of rasters that must be unzipped by user)
 #         >>> R_data
-#            ## occ_SPATIAL_proj.shp & associated files (see readme about unzipping large .dbf file)
+#            ## occ_SPATIAL_proj.shp & associated files (large .dbf file must be unzipped by user)
 #            ## Ae_aegypti_mosqcounts_blurred.csv for direct inquiry
-#            ## df.csv used in Part 3 of this code as an output of Part 2
+#            ## df.csv used in Part 3 of this code (result of running code in Part 2)
 
 ##########
 # PART 2: Matching mosquito counts to local precipitation data
@@ -95,7 +96,6 @@
 library(raster)
 library(ggplot2)
 library(rstudioapi)
-
 
 # Getting the path of your current open file
 current_path = rstudioapi::getActiveDocumentContext()$path 
@@ -128,10 +128,14 @@ hist(log(occ$spp))
 # To use the full stack, delete the example layers and download the FigShare data
 # (these are available as .zip file. Extract them before use)
 
-layers <- list.files("model/rainfall_maricopa/3_station_raster/",full.names = T,
+layers <- list.files("model/rainfall_maricopa_vis/3_station_raster/",full.names = T,
                      pattern="_ped.tif$")
 layers
+one_ly <- raster(layers[1]) # view first layer loaded in list, as example
+plot(one_ly)
 one_ly <- raster(layers[2]) # view second layer loaded in list, as example
+plot(one_ly)
+one_ly <- raster(layers[3]) # view third layer loaded in list, as example
 plot(one_ly)
 
 #############################
@@ -229,7 +233,7 @@ df <- reshape::melt(df,id=c("spp","trapDay"))
 head(df)
 #############################
 
-# subset data by abundance if applicable
+# subset data by abundance if applicable (not done in associated manuscript)
 test <- subset(df,spp<1500)
 
 #graph results
