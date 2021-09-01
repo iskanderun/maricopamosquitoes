@@ -240,6 +240,7 @@ write.csv(ppt_data_1day_full, "model/R_data/ppt_data_1day_full.csv")
 df <- read.csv("model/R_data/ppt_data_1day_full.csv")
 rm(ppt_data_1day_full)
 names(df)[1:2] <- c("num_fem","trapDay")
+df$num_fem <- as.numeric(df$num_fem)
 
 # "ppt_X_X" represents precipitation in inches for each trapping event
 
