@@ -24,9 +24,11 @@
 # can be specified by the user by modifying the code. Notes below.
 
 # Examples of kriged layers of precipition data used in this study are available
-# in folder "rainfall_maricopa". The full set of rasters is provided as a zip file
-# and if they are to be used, then delete or rename folder rainfall_maricopa" and
-# unzip the file by a similar name in the R_data folder.
+# in folder "rainfall_maricopa". These are for visualization only, as the 
+# code will only run if all trapping events can be associated with previous days' 
+# precipitation at that exact location. The full set of rasters is provided as a zip file
+# and if they are used, then the user should delete or rename folder "rainfall_maricopa" and
+# unzip the file by a similar name in the "aedes_precip > model" folder.
 # Data are also available for download at figshare.com at
 ## Newman, Erica; Feng, Xiao (2021): Maricopa County, AZ interpolated daily 
 # precipitation rasters. 
@@ -34,15 +36,18 @@
 # (permanent repository)
 
 # Note: these files are 12.5 MB as a .zip file, but will be larger than 9 GB 
-# once unzipped 
+# once unzipped.
+
 # Users may need to manage working memory of their computers in order to run
 # these analyses with these data; however, similar analyses with smaller 
-# rasters should run comfortably on a 8GB memory computer
+# rasters should run comfortably on a 8GB memory computer.
 
 # Data for trap location information ("blurred" to protect currently operating 
 # machinery and personal addresses), and counts of male and female adults
-# Aedes aegypti collected at those traps, with collection dates
-# are available in the github repository.
+# Aedes aegypti collected at those traps, with associated collection dates
+# are available in the github repository as "Ae_aegypti_mosqcounts_blurred.csv"
+# in the aedes_precip > model > R_data folder. Blurred data are provided as  
+# location information rounded to 3 decimal places. 
 
 # The file structure used for these analyses follow that of the "aedes_precip" 
 # folder in this github repository.
