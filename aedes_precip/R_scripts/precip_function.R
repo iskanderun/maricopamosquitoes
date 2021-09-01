@@ -206,12 +206,12 @@ ppt_data_1day <- cbind(ppt_1_1,
 # not run:
 # write.csv(ppt_data,"model/ppt_data_1day.csv")
 
-# bind mosquito abundance information to precipiation information
-df <- data.frame(cbind(occ$spp,
+# bind mosquito abundance information to precipitation information
+ppt_data_1day_full <- data.frame(cbind(occ$spp,
                        occ$trapDay,
                        ppt_data_1day))
 
-#write.csv(df,"df.csv")
+#write.csv(ppt_data_1day_full,"df.csv")
 
 
 # Or do this with cumulative precipitation
@@ -234,6 +234,11 @@ df <- data.frame(cbind(occ$spp,
 # the code below and running it
 
 #    df <- read.csv("model/R_data/df.csv")
+
+# or use the .csv file created in PART 2
+
+df <- ppt_data_1day_full
+rm(ppt_data_1day_full)
 
 # "spp" represents counts of individual adults (here, only females)
 # "ppt_X_X" represents precipitation in inches for each trapping event
