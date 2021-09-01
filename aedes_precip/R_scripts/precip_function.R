@@ -104,7 +104,7 @@ print( getwd() )
 # load mosquito data
 # make sure to unzip the .dbf file in this folder before running the next line
 
-occ <- shapefile("/R_data/occ_SPATIAL_proj.shp")
+occ <- shapefile("model/R_data/occ_SPATIAL_proj.shp")
 
 occ$trapDay <- as.Date(occ$labdate, "%m/%d/%Y")    #change date to better format
 
@@ -114,6 +114,8 @@ occ$trapDay <- as.Date(occ$labdate, "%m/%d/%Y")    #change date to better format
 occ$spp <- occ$A_gyp_F    # however, this line can be used instead 
             # to model only the female Ae. aegypti, as in the manuscript
 
+hist(log(occ$spp))
+
 #############################
 # load PPT layers 
 # if this code is run without the figshare data, it will load a few example layers
@@ -121,7 +123,7 @@ occ$spp <- occ$A_gyp_F    # however, this line can be used instead
 # To use the full stack, delete the example layers and download the FigShare data
 # (these are available as .zip file. Extract them before use)
 
-layers <- list.files("rainfall_maricopa/3_station_raster/",full.names = T,
+layers <- list.files("model/rainfall_maricopa/3_station_raster/",full.names = T,
                      pattern="_ped.tif$")
 layers
 one_ly <- raster(layers[2]) # view second layer loaded in list, as example
@@ -169,8 +171,11 @@ calPPT <- function(daysAgo, dayRange,ooo){
   return(varData)
 }
 
-# Note: these may take an hour or more to run
-# find precipitation data associated with locations for (examples):
+###############################################
+# Note: the following code may take an hour or more to run
+# If desired, skip to PART 3 and use the pre-made file "df.csv" for graphing
+
+# Find precipitation data associated with locations for (examples):
 # 1 day, starting 1 day ago
 ppt_1_1 <- calPPT(daysAgo = 1,dayRange = 1,ooo=occ) 
 # 1 day, starting 2 days ago
@@ -209,7 +214,10 @@ df <- data.frame(cbind(occ$spp,
 # "df.csv" can be created above; or you can load "df.csv" directly by uncommenting 
 # the code below and running it
 
-#df <- read.csv("model/R_data/df.csv")
+#    df <- read.csv("model/R_data/df.csv")
+
+# "spp" represents counts of individual adults (here, only females)
+# "ppt_X_X" represents precipitation in inches for each trapping event
 
 head(df)
 df <- reshape::melt(df,id=c("spp","trapDay"))
@@ -222,7 +230,10 @@ test <- subset(df,spp<1500)
 #graph results
 ggplot(test,aes(value,spp)) +
   geom_point() +
-  facet_grid (variable~.)
+  facet_grid (variable~.) +
+  xlab("Preceding days' precipitation in inches") +
+  ylab("Female Ae. aegypti counts")
+  
 
 ## save figure in png format
 ggsave("model/ppt_makefemaleCount.png",device="png")
