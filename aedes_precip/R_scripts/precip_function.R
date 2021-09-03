@@ -1,7 +1,7 @@
 # newmane@berkeley.edu and fengxiao.sci@gmail.com
 # match mosquito trap data with precipitation data
 # R software script
-# last updated: 2021.08.31
+# last updated: 2021.09.02
 
 # PART 1: Introduction
 # PART 2: Matching mosquito counts to local precipitation data
