@@ -34,9 +34,15 @@
 # precipitation rasters. 
 ## figshare. Dataset. https://doi.org/10.6084/m9.figshare.14068988.v1 
 # (permanent repository)
+# Currently, these files may be unusable because of embedded Dropbox permissions.
+# We are investigating this and will make changes to that repository soon.
+# As a workaround, please use the .tar.gz file in Dropbox:
+# https://www.dropbox.com/sh/9vnj7xx8znxpd8b/AAC0sWDQuas5Q34QD89i_i6ua?dl=0
+# and download the tar.gz file manually. Extraction instructions are in the
+# code below and in the README file for the folder aedes > model.
 
-# Note: these files are 12.5 MB as a .zip file, but will be larger than 9 GB 
-# once unzipped.
+# Note: the tar.gz file is 7.7 GB and will be larger than 9 GB 
+# once extracted.
 
 # Users may need to manage working memory of their computers in order to run
 # these analyses with these data; however, similar analyses with smaller 
@@ -111,7 +117,7 @@ print( getwd() )
 
 occ <- shapefile("model/R_data/occ_SPATIAL_proj.shp")
 
-occ$trapDay <- as.Date(occ$labdate, "%m/%d/%Y")    #change date to better format
+occ$trapDay <- as.Date(occ$labdate, "%m/%d/%Y")    #change date to readable format
 
 #occ$spp <- occ$A_gyp_M + occ$A_gyp_F      #in this example, 
             # male and female Aedes aegypti mosquito counts are grouped
@@ -138,6 +144,26 @@ rm(layers1)
 
 ######################################
 # Run the code below for use in function calPPT
+
+# ***TEMPORARY INSTRUCTIONS****
+
+# We intend to place the data in a permanent repository, however, because of data limitations and 
+# "big data" issues, we believe the FigShare repository does not currently contain working raster files.
+
+# As a temporary workaround, please go to Dropbox folder:
+# https://www.dropbox.com/sh/9vnj7xx8znxpd8b/AAC0sWDQuas5Q34QD89i_i6ua?dl=0
+# and manually download the file rainfall_maricopa.tar.gz
+# This file is 7.7 GB and will be 9GB or larger once extracted.
+
+# Extract the file in this folder (aedes_precip > model), either by clicking on it
+# or by using the Terminal on Mac (or other Linux terminal). Change the working 
+#directory to the folder "model" and execute the command:
+
+# tar -xzf rainfall_maricopa.tar.gz
+#
+# ***END TEMPORARY INSTRUCTIONS****
+
+
 layers <- list.files("model/rainfall_maricopa/3_station_raster/",full.names = T,
                      pattern="_ped.tif$")
 head(layers)
@@ -187,7 +213,13 @@ calPPT <- function(daysAgo, dayRange,ooo){
 
 ###############################################
 # Note: the following code may take an hour or more to run
-# If desired, skip to PART 3 and use the pre-made file "df.csv" for graphing
+# *****If desired, skip to PART 3 and use the pre-made file "df.csv" for graphing*****
+
+# The next line is a test to see if the code is working before committing to 
+# a big data extraction
+test_ppt_1_1 <- calPPT(daysAgo = 1,dayRange = 1,ooo=occ[1:4,])
+# if test_ppt_1_1 contains values other than NA, then it is extracting correctly
+rm(test_ppt_1_1)
 
 # Find precipitation data associated with locations for (examples):
 # 1 day, starting 1 day ago
