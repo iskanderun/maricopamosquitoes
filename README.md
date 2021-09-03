@@ -8,7 +8,7 @@ repository as a .zip file, which should then be and unzipped locally.
 Warning: the kriged precipiation files (in rainfall_maricopa) are large and numerous! Because of data limitations, 
 we have provided a .targz data file offsite, that needs to be downloaded and extracted in 
 aedes_recip > model. The link to those data are temporarily in a Dropbox folder, here: 
-XXXXX
+https://www.dropbox.com/sh/9vnj7xx8znxpd8b/AAC0sWDQuas5Q34QD89i_i6ua?dl=0
 and we will find a permanent home these layers soon. 
 
 These layers will be over 9GB once extracted. We have also provided the outputs of 
