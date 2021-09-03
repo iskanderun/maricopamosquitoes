@@ -26,22 +26,22 @@
 # Examples of kriged layers of precipition data used in this study are available
 # in folder "rainfall_maricopa". These are for visualization only, as the 
 # code will only run if all trapping events can be associated with previous days' 
-# precipitation at that exact location. The full set of rasters is provided as a zip file
-# and if they are used, then the user should delete or rename folder "rainfall_maricopa" and
-# unzip the file by a similar name in the "aedes_precip > model" folder.
-# Data are also available for download at figshare.com at
+# precipitation at that exact location. The full set of rasters will be required
+# to run analyses, and should go in the "aedes_precip > model" folder.
+# Data are available for download at figshare.com at
 ## Newman, Erica; Feng, Xiao (2021): Maricopa County, AZ interpolated daily 
 # precipitation rasters. 
 ## figshare. Dataset. https://doi.org/10.6084/m9.figshare.14068988.v1 
 # (permanent repository)
-# Currently, these files may be unusable because of embedded Dropbox permissions.
+# Currently, these files *may* be unusable because of embedded Dropbox permissions.
 # We are investigating this and will make changes to that repository soon.
+#
 # As a workaround, please use the .tar.gz file in Dropbox:
 # https://www.dropbox.com/sh/9vnj7xx8znxpd8b/AAC0sWDQuas5Q34QD89i_i6ua?dl=0
 # and download the tar.gz file manually. Extraction instructions are in the
 # code below and in the README file for the folder aedes > model.
 
-# Note: the tar.gz file is 7.7 GB and will be larger than 9 GB 
+# Note: the tar.gz file is >9 GB and will be larger than that 
 # once extracted.
 
 # Users may need to manage working memory of their computers in order to run
