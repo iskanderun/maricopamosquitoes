@@ -9,7 +9,7 @@ We intend to place the data in a permanent repository, however, because of data 
 As a temporary workaround, please go to Dropbox folder:
 https://www.dropbox.com/sh/9vnj7xx8znxpd8b/AAC0sWDQuas5Q34QD89i_i6ua?dl=0
 and manually download the file rainfall_maricopa.tar.gz
-This file is 7.7 GB and will be 9GB or larger once extracted.
+This file is >9 GB and will be larger than that once extracted.
 
 Extract the file in this folder (aedes_precip > model), either by clicking on it
 or by using the Terminal on Mac (or other Linux terminal). Change the working 
