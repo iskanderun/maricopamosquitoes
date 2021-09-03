@@ -11,7 +11,7 @@ https://www.dropbox.com/sh/9vnj7xx8znxpd8b/AAC0sWDQuas5Q34QD89i_i6ua?dl=0
 and manually download the file rainfall_maricopa.tar.gz
 This file is >9 GB and will be larger than that once extracted.
 
-Extract the file in this folder (aedes_precip > model), either by clicking on it
+Extract the file into this folder (aedes_precip > model), either by clicking on it
 or by using the Terminal on Mac (or other Linux terminal). Change the working 
 directory to the folder "model" and execute the command:
 
